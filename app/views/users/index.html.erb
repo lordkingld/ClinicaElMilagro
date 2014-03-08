@@ -1,0 +1,25 @@
+
+<% if @users.size>0 %>
+<h3>Listado <%= pluralize(@users.count,"user")%> </h3>
+<table>
+	<tr>
+		<th>Email</th>
+		<th>Rol</th>
+		<th></th>
+	</tr>
+	<% @users.each do |user| %>
+	<tr>
+		<td><%= user.email %></td>
+		<td><%= user.role_user %></td>
+		<td><%= edit_pill_button_link_to "Editar", edit_user_path(user) %></td>
+	</tr>
+	<% end %>
+</table>
+<% else %>
+<h3><%=pluralize(@users.count,"user")%> found</h3>
+<% end %>
+<br />
+
+<%= user_add_button_link_to "Nuevo Usario" , new_user_path %>
+
+

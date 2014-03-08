@@ -1,0 +1,11 @@
+<h1>Modificando Usuario</h1>
+
+<%= render 'form' %>
+
+
+<%= button_group do %>
+
+<%= arrowleft_button_link_to "Volver", type_people_path(@person.type_person) %>
+<%= button_link_to "Mostrar", @person %>
+
+<% end %>

@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+<p>
+  <b>Rol:</b>
+  <%= @user.role_user %>
+</p>
+
+<%= button_group do %>
+
+  <%= edit_pill_button_link_to "Editar", edit_user_path(@person) %>
+  <%= arrowleft_pill_button_link_to "Volver", users_path  %>
+
+<% end %>

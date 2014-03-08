@@ -1,0 +1,16 @@
+<header>
+	<% logo = image_tag("logo.jpg", :alt => "Clínica el Milagro", :class => "round") %>
+	<%= link_to logo, home_index_path, :id=>"logo"%>
+	<nav class="round">
+		<ul>
+			<% if user_signed_in? %>
+			<li>Ingresado como <%= current_user.email %>  <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
+			<% else %>
+			<li><%= link_to "Ingresar", user_session_url %> or <%= link_to "Registrarse", new_user_registration_path %></li>
+			<% end %>
+		</ul>
+	</nav>
+	<% if personExist?  %>
+		<%= render 'layouts/menu' %><br>
+	<% end %>
+</header>

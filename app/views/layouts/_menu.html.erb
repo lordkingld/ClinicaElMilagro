@@ -1,0 +1,21 @@
+<div align = "center">
+<ul id="menuhorizontal">
+  <%= button_group do %>
+
+	<li><%= calendar_pill_button_link_to "Citas", appointments_path  %></li>
+
+	<% if current_user.role_user.eql? "Pacientes" or current_user.role_user.eql? "Admin" %>
+	<li><%= user_pill_button_link_to "Doctores",  type_people_path('Doctor')%></li>
+	<% end %>
+
+	<% if current_user.role_user.eql? "Admin" %>
+	<li><%= user_pill_button_link_to "Pacientes", type_people_path('Patient')%></li>
+	<% end %>
+
+	<% if current_user.role_user.eql? "Admin" %>
+	<li><%= user_pill_button_link_to "Usuarios", users_path %></li>
+	<% end %>
+
+  <% end %>
+</ul>
+</div>

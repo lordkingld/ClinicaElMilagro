@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Doctor:</b><br />
+  <%= @doctor.name + " " + @doctor.last_name %>
+</p>
+
+<p>
+  <b>Fecha:</b><br />
+  <%= @appointment.date_appointment %>
+</p>
+
+<p>
+  <b>Hora:</b><br />
+  <%= @appointment.time_appointment %>
+</p>
+
+<p>
+  <b>Estado:</b><br />
+  <%= @appointment.status %>
+</p>
+
+<%= arrowleft_button_link_to "Volver", appointments_path %>

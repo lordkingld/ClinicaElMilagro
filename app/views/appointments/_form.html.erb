@@ -1,0 +1,45 @@
+<%= form_for(@appointment) do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if flash[:notice] %>
+    <div id="error_explanation">
+      <%=flash[:notice]%>
+    </div>
+  <% end %>
+  <p>
+ <% unless @people.nil? and @patient.nil?%>
+    <%= f.label :doctor_id %><br />
+    <%= f.hidden_field :doctor_id , :value=>@people.id %>
+    <%= @people.name %>     <%= @people.last_name%><br />
+  </p>
+  <div class="field">
+    <%= f.hidden_field :patient_id , :value=> @mypatient.id %>
+  </div>
+  <%end%>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date_appointment %>
+  </p>
+  <p>
+    <%= f.label :hour %><br />
+    <%= f.time_select :time_appointment ,:minute_step => 30 %>
+	
+  </p>
+  <p>
+    <%= f.hidden_field :status, :value=>'Scheduled' %>
+  </p>
+  <p>
+    <%= button_submit_tag 'Submit' %>
+  </p>
+<% end %>
+
+<br />

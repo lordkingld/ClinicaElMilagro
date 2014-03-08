@@ -1,0 +1,16 @@
+<h2>Nuevo Usario</h2>
+
+<%= form_for(:user, :url => create_user_path) do |f| %>
+  <p><%= f.label :email %><br />
+  <%= f.text_field :email %></p>
+
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></p>
+<p>
+    <%= f.collection_select :role_user, User::ROLES, :to_s, :titleize %>
+</p>
+  <p><%= button_submit_tag "Registrarse" %></p>
+<% end %>

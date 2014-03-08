@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+<div align = "center">Sistema de Gestión de Citas Médicas Clínica el Milagro</div>
+<% else %>
+<div align = "center">
+	<h2>Sistema de Gestión de Citas Médicas Clínica el Milagro</h2>
+</div>
+<%= link_to "Registrate para comenzar", new_user_registration_path, :class => "signup_button round"%>
+<br />
+<div align = "center"><em>Necesitas estar registrado para hacer una cita</em></div>
+<% end %>
+

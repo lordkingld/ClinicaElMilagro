@@ -1,0 +1,30 @@
+
+<h3>Listado de Citas</h3>
+
+<table>
+	<tr>
+		<th>Doctor</th>
+		<th>Paciente</th>
+		<th>Fecha</th>
+		<th>Hora</th>
+		<th>Estado</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% @appointments.each do |appointment| %>
+	<tr>
+		<td><%= "#{appointment.doctor.name}  #{appointment.doctor.last_name}"%></td>
+		<td><%= "#{appointment.patient.name}  #{appointment.patient.last_name}"%></td>
+		<td><%= appointment.date_appointment %></td>
+		<td><%= appointment.time_appointment %></td>
+		<td><%= appointment.status %></td>
+		<% show = image_tag("show.png", :alt => "Mostrar Cita", :height => '25', :width => '25') %>
+		<td><%= link_to show, appointment, :id => "show" %></td>
+		<%if appointment.status.eql? "Scheduled"%>
+			<% cross = image_tag("cancel.png", :alt => "Cancelar Cita", :height => '25', :width => '25') %>
+			<td><%= link_to cross, cancel_appointment_path(appointment.id), :id => "cross", :confirm => '¿Estás seguro?' %></td>
+		<%end%>
+	</tr>
+	<% end %>
+</table>
+

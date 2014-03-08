@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Full Name:</b>
+  <%= "#{@person.name}  #{@person.last_name}" %>
+</p>
+
+<p>
+  <b>Sex:</b>
+  <%= @person.sex %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @person.city %>
+</p>
+<% if @person.type_person.eql? "Admin" %>
+<p>
+  <b>Address:</b>
+  <%= @person.address %>
+</p>
+<% end %>
+<p>
+  <b>Role:</b>
+  <%= @person.type_person %>
+</p>
+
+<%= button_group do %>
+
+  <%= arrowleft_pill_button_link_to "Back", type_people_path(@person.type_person)  %>
+  
+  <% if @person.type_person.eql? "Admin" %>
+  <%= edit_pill_button_link_to "Edit", edit_person_path(@person) %>
+  <% end %>
+
+<% end %>

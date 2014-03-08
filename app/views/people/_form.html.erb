@@ -1,0 +1,61 @@
+<%= form_for @person do |f| %>
+<% if @person.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+	<ul>
+		<% @person.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+	<div>
+
+		<p>
+			<%= f.label :name %><br />
+			<%= f.text_field :name %>
+		</p>
+
+		<p>
+			<%= f.label :last_name %><br />
+			<%= f.text_field :last_name %>
+		</p>
+
+		<p>
+			<%= f.label :sex %><br />
+			<%= f.text_field :sex %>
+		</p>
+
+		<p>
+			<%= f.label :birthday %><br />
+			<%= f.date_select  :birthday, :start_year => 1920 %> 
+		</p>
+
+		<p>
+			<%= f.label :cell_number %><br />
+			<%= f.text_field :cell_number %>
+		</p>
+
+		<p>
+			<%= f.label :city %><br />
+			<%= f.text_field :city %>
+		</p>
+
+		<p>
+			<%= f.label :address %><br />
+			<%= f.text_field :address %>
+		</p>
+
+		<p>
+			<%= f.label :type_person, "Role" %><br />
+			<%= f.text_field :type_person %>
+		</p>
+
+		<p>
+		<%= button_submit_tag 'Submit' %><br />
+		</p>
+		
+		</div>
+<% end %>
+<br />
