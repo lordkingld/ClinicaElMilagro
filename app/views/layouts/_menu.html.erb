@@ -4,7 +4,7 @@
 
 	<li><%= calendar_pill_button_link_to "Citas", appointments_path  %></li>
 
-	<% if current_user.role_user.eql? "Pacientes" or current_user.role_user.eql? "Admin" %>
+	<% if current_user.role_user.eql? "Patient" or current_user.role_user.eql? "Admin" %>
 	<li><%= user_pill_button_link_to "Doctores",  type_people_path('Doctor')%></li>
 	<% end %>
 
