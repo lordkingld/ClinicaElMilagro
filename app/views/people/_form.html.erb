@@ -28,8 +28,10 @@
 		</p>
 
 		<p>
+		<% unless @nomostrar %>
 			<%= f.label :birthday %><br />
-			<%= f.date_select  :birthday, :start_year => 1920 %> 
+			<%= f.date_select  :birthday, :start_year => 1920 %>
+		<% end %>
 		</p>
 
 		<p>
@@ -55,7 +57,7 @@
 		<p>
 		<%= button_submit_tag 'Submit' %><br />
 		</p>
-		
+
 		</div>
 <% end %>
 <br />

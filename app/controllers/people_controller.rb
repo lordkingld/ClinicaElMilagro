@@ -30,8 +30,9 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find(params[:id])
-    mydate= @person.birthday.split("-")
-    @person.birthday=Date.strptime("{#{mydate[0]},#{mydate[1]},#{mydate[2]}}","{%Y,%m,%d}")
+    @nomostrar = true
+    #mydate= @person.birthday.split("-")
+    #@person.birthday=Date.strptime("{#{mydate[0]},#{mydate[1]},#{mydate[2]}}","{%Y,%m,%d}")
   end
 
   def create
@@ -54,7 +55,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.update_attributes(params[:person])
         @user=User.find(@person.user_id)
-        UserMailer.registration_confirmation(@user).deliver  
+        UserMailer.registration_confirmation(@user).deliver
         format.html { redirect_to(@person, :notice => 'Person was successfully updated.') }
         format.xml  { head :ok }
       else
